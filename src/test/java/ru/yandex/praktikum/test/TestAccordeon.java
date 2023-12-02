@@ -60,8 +60,6 @@ public class TestAccordeon {
         homePage.clickButtonCookie();
         homePage.openAcordionHeader(numberElement);
 
-
-
         Assert.assertEquals("Заголовок не совпадает", expectedHeaderText, homePage.getAcordionHeader(numberElement));
         Assert.assertEquals("Содержимое не совпадает", expectedAnswerText, homePage.getAccordionItems(numberElement));
 

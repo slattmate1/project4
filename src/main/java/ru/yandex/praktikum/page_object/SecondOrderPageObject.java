@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class SecondOrderPageObject {
 
     private WebDriver driver;
@@ -66,6 +68,7 @@ public class SecondOrderPageObject {
 
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(modalWindow));
         driver.findElement(buttonYes).click();
+
     }
 
     public String getOrderMessage() {

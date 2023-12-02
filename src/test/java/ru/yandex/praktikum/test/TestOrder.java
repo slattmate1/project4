@@ -83,7 +83,7 @@ public class TestOrder {
         secondPageObject.clickBlackChevkbox();
         secondPageObject.clickButtonOrder();
         secondPageObject.clickButtonYes();
-        assertTrue("Ошибка",
+        assertTrue("Ошибка: Текст кнопки не совпадает. ОР: Заказ оформлен",
                 secondPageObject.getOrderMessage().contains(exectedOrderText));
 
 
