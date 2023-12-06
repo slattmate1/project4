@@ -18,7 +18,6 @@ import ru.yandex.praktikum.page_object.SecondOrderPageObject;
 
 import static org.junit.Assert.assertTrue;
 
-
 @RunWith(Parameterized.class)
 public class TestOrder {
 
@@ -30,6 +29,7 @@ public class TestOrder {
     private final String comment;
     private final String metro;
     private final String exectedOrderText = "Заказ оформлен";
+    private static final By FOR_WHOM_SCOOTER = By.xpath(".//div[text()='Для кого самокат']");
 
     public TestOrder(String name, String surname, String adres, String phone, String comment, String metro) {
         this.name = name;
@@ -94,7 +94,7 @@ public class TestOrder {
         HomePageObject homePage = new HomePageObject(driver);
         homePage.open();
         homePage.clickOrderButtonUpOnHomePage();
-        WebElement orderWindowElement = driver.findElement(By.xpath(".//div[text()='Для кого самокат']"));
+        WebElement orderWindowElement = driver.findElement(FOR_WHOM_SCOOTER);
         assertTrue("Ошибка", orderWindowElement.isDisplayed());
     }
 
