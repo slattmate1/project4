@@ -34,10 +34,12 @@ public class HomePageObject {
         driver.get(site);
     }
 
-    public void clickOrderButtonUpOnHomePage() {
+    public boolean clickOrderButtonUpOnHomePage() {
         WebElement orderButtonElement = new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(orderButtonUpOnHomePage));
         orderButtonElement.click();
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(orderWindow));
+        WebElement orderWindowElement = driver.findElement(orderWindow);
+        return orderWindowElement.isDisplayed();
     }
 
     public void clickOrderButtonMiddleHmePage() {

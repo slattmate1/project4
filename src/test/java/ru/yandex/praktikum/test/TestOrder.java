@@ -29,7 +29,6 @@ public class TestOrder {
     private final String comment;
     private final String metro;
     private final String exectedOrderText = "Заказ оформлен";
-    private static final By FOR_WHOM_SCOOTER = By.xpath(".//div[text()='Для кого самокат']");
 
     public TestOrder(String name, String surname, String adres, String phone, String comment, String metro) {
         this.name = name;
@@ -55,9 +54,6 @@ public class TestOrder {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
         driver.manage().window().setSize(new Dimension(1800, 1000));
-
-
-
     }
 
     @Test
@@ -93,9 +89,7 @@ public class TestOrder {
     public void choiceOrderWithUpButton() {
         HomePageObject homePage = new HomePageObject(driver);
         homePage.open();
-        homePage.clickOrderButtonUpOnHomePage();
-        WebElement orderWindowElement = driver.findElement(FOR_WHOM_SCOOTER);
-        assertTrue("Ошибка", orderWindowElement.isDisplayed());
+        assertTrue("Ошибка", homePage.clickOrderButtonUpOnHomePage());
     }
 
     @After
